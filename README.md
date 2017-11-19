@@ -1,6 +1,6 @@
 # Wasm exercise
 
-Encrypt files on the web. Written in c++, compiled to webassembly using emscripten.
+Encrypt files on the web. 
 
 ## Getting Started
 
