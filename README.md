@@ -30,6 +30,7 @@ node index.js
 ```
 
 Then navigate to http://localhost:3000.
+Or visit https://peaceful-sands-60543.herokuapp.com/.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
