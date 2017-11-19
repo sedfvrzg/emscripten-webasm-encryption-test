@@ -16,6 +16,12 @@ body {
     margin-top: 10px;
 }
 
+#warning {
+    color: red;
+    position: absolute;
+    transform: translateY(-95px);
+}
+
 #file {
     width: 0.1px;
 	height: 0.1px;

@@ -11,6 +11,22 @@ const label = document.querySelector('label');
 const filefield = document.querySelector('#file');
 const worker = new Worker('worker.js');
 
+const Warning = {
+    warning: document.querySelector('#warning'),
+    id: -1,
+    set(m){
+        this.warning.textContent = "Warning: " + m;
+        if(this.id !== -1){
+            window.clearTimeout(this.id);
+        }
+
+        this.id = window.setTimeout(() => {
+            this.warning.textContent = " ";
+            this.id = -1;
+        }, 2500)
+    }
+}
+
 let progress = 0;
 let timestamp = 0;
 
@@ -24,14 +40,36 @@ const init = () => {
     filefield.addEventListener('change', fileCallback);
 }
 
+//https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+numberWithCommas = x =>  {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const buttonCallback = () => {
-    if(keyfield.value.length < 1 || filefield.files.length !== 1){
-        console.log('nyet');
+    if(!validate()){
         return;
     }
 
     worker.postMessage({ cmd: 1, blob: filefield.files[0], key:  keyfield.value })
     timestamp = Date.now();
+}
+
+const validate = () => {
+
+    if(keyfield.value.length < 1){
+        Warning.set("Please enter a password.");
+        return false;
+    }
+    if(filefield.files.length !== 1){
+        Warning.set("Please select a file.")
+        return false;
+    }
+    if(filefield.files[0].size > 1024*1024*256){
+        Warning.set(`File too large. Max: ${numberWithCommas(1024*1024*256)}, You: ${numberWithCommas(filefield.files[0].size)}`);
+        return false;
+    }
+
+    return true;
 }
 
 const workerCallback = ({ data }) => {
