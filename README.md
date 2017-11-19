@@ -22,7 +22,8 @@ Get VMware here -> https://my.vmware.com/en/web/vmware/free#desktop_end_user_com
 Assuming you're on some sort of Linux machine and you have emscripten as well as nodejs, these commands should install everything.
 
 ```
-cd wasm
+git clone https://github.com/sedfvrzg/emscripten-webasm-encryption-test.git wasm_exercise
+cd wasm_exercise/wasm
 make
 cd ..
 npm install
@@ -30,7 +31,9 @@ node index.js
 ```
 
 Then navigate to http://localhost:3000.
-Or visit https://peaceful-sands-60543.herokuapp.com/.
+
+A live example can be found here https://peaceful-sands-60543.herokuapp.com/.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
