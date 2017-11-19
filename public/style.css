@@ -1,0 +1,65 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.celement {
+    margin-top: 10px;
+}
+
+#file {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#file + label {
+    height: 30px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid white;
+    width: 400px;
+    text-align: center;
+    font-size: 1.25em;
+    transition: 0.1s linear;
+}
+label:hover {
+    background-color: #101010 !important;
+}
+
+button {
+    width: 100px;
+    background-color: black;
+    border: 1px solid white;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+
+button:hover {
+    background-color: #101010;
+}
+
+input[type='password'] {
+    height: 26px;
+    border: 1px solid white;
+    background-color: black;
+    width: 282px;
+    color: white;
+    padding-left: 10px;
+}
